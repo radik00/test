@@ -14,3 +14,5 @@
 use App\Http\Controllers\IndexController;
 
 Route::get('/', 'IndexController@index');
+
+Route::get('page1', 'IndexController@page1');
