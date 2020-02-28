@@ -56,5 +56,14 @@ class IndexController extends Controller
 
         return redirect('/');
     }
-    
+public function admin()
+    {
+        $articless = Article::select(['title', 'description', 'img', 'id', 'text'])->get();
+        //dump($articles);
+        return view('admin')->with([
+            'articless' => $articless
+        ]);
+    }
+
+
 }

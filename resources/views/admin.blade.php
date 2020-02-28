@@ -14,13 +14,18 @@
     <!-- Example row of columns -->
     <div class="row">
      
-    @foreach($articles as $article)
+    @foreach($articless as $article)
 
       <div class="col-md-4">
         <h2>{{$article->title}}</h2>
         <p><img src='{{$article->img}}' width="100px";></p>
         <p>{{$article->description}}</p>
         <p><a class="btn btn-secondary" href="{{route('articleShow',['id'=>$article->id])}}" role="button">View details &raquo;</a></p>
+      <form action="{{route('articleDelete', ['article'=>$article->id])}}" method="POST">
+                    {{method_field('delete')}}
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
 
       </div>
 
